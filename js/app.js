@@ -3,13 +3,13 @@
  */
 var app = {
   init: function() {
+    app.container = document.getElementById('todo');
     app.creatForm();
+    app.createCounter();
   },
 
   // formulaire
   creatForm: function(){
-    const container = document.getElementById('todo');
-
     const form = document.createElement('form');
     form.className = 'form-addTask';
 
@@ -19,7 +19,19 @@ var app = {
     input.type = 'text';
 
     form.appendChild(input);
-    container.appendChild(form);
+    app.container.appendChild(form);
+  },
+
+  // Compteur de tache
+  createCounter: function(){
+    app.counter = document.createElement('div');
+    app.setCoutnerValue();
+    app.counter.className = 'counter';
+    app.container.appendChild(app.counter);
+  },
+
+  setCoutnerValue: function(){
+    app.counter.textContent = '2 tâches en cours';
   }
 };
 
