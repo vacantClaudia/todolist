@@ -40,6 +40,11 @@ body{
   padding-left: 1em;
 }
 
+.task-container--done{
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 .task-container .checkbox {
   margin-right: 0.5em;
 }

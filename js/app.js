@@ -41,6 +41,10 @@ var app = {
       const liElement = document.createElement('li');
       liElement.className = 'task-container';
 
+      if (i === 0){
+        liElement.classList.add('task-container--done');
+      }
+
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.className = 'checkbox';
