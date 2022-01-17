@@ -6,6 +6,7 @@ var app = {
     app.container = document.getElementById('todo');
     app.creatForm();
     app.createCounter();
+    app.createTaskList();
   },
 
   // formulaire
@@ -32,6 +33,32 @@ var app = {
 
   setCoutnerValue: function(){
     app.counter.textContent = '2 tâches en cours';
+  },
+
+  createTaskList: function(){
+    const ulElement = document.createElement('ul');
+    for (let i = 0; i < 3 ; i++){
+      const liElement = document.createElement('li');
+      liElement.className = 'task-container';
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'checkbox';
+      const idTask = 'checkbox' + i;
+      checkbox.id = idTask;
+
+      const label = document.createElement('label');
+      label.className = 'label';
+      label.textContent = 'Revoir le JavaScript';
+      label.setAttribute('for', idTask);
+
+      liElement.appendChild(checkbox);
+      liElement.appendChild(label);
+
+      ulElement.appendChild(liElement);
+    }
+
+    app.container.appendChild(ulElement);
   }
 };
 
