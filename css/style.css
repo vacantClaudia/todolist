@@ -1,0 +1,21 @@
+body{
+  background-color: #89B5AF;
+}
+.form-addTask{
+  padding: 500px;
+  margin:auto;
+}
+
+.input-addTask{
+  width : 100%;
+  background-color: #DED9C4;
+  border: 1px solid #D0CAB2;
+  color: #D0CAB2;
+  box-shadow: inset 0 0 25px #D0CAB2;
+  padding: 1em;
+  font-size: 1.5em;
+}
+
+.input-addTask:focus{
+  box-shadow: inset 0 0 25px #2d4441;
+}
