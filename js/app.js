@@ -34,7 +34,13 @@ var app = {
   },
 
   setCoutnerValue: function(){
-    app.counter.textContent = '2 tâches en cours';
+    const nbTaskNotDone = document.querySelectorAll('ul li.task-container:not(.task-container--done)').length;
+    if (nbTaskNotDone === 0){
+      app.counter.textContent = 'Aucune tâche en cours';
+    }else{
+      app.counter.textContent = nbTaskNotDone + ' tâche(s) en cours';
+    }
+    
   },
 
   createTaskList: function(){
@@ -80,6 +86,9 @@ var app = {
     liElement.appendChild(label);
 
     app.ulElement.appendChild(liElement);
+
+    // On met à jour le compteur
+    app.setCoutnerValue();
   }
 };
 
