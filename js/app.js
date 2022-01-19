@@ -7,6 +7,7 @@ var app = {
     app.creatForm();
     app.createCounter();
     app.createTaskList();
+    
   },
 
   // formulaire
@@ -37,40 +38,44 @@ var app = {
   },
 
   createTaskList: function(){
-    const ulElement = document.createElement('ul');
-    for (let i = 0; i < 3 ; i++){
-      const liElement = document.createElement('li');
-      liElement.className = 'task-container';
+    app.ulElement = document.createElement('ul');
+    app.container.appendChild(app.ulElement);
+  },
 
-      if (i === 0){
-        liElement.classList.add('task-container--done');
-      }
-
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.className = 'checkbox';
-      const idTask = 'checkbox' + i;
-      checkbox.id = idTask;
-
-      const label = document.createElement('label');
-      label.className = 'label';
-      label.textContent = 'Revoir le JavaScript';
-      label.setAttribute('for', idTask);
-
-      liElement.appendChild(checkbox);
-      liElement.appendChild(label);
-
-      ulElement.appendChild(liElement);
-    }
-
-    app.container.appendChild(ulElement);
+  // Gerer la soumission du formulaire
+  handleFormSubmit: function(event){
+    // console.log('nouvelle tâche');
+    // On empeche la page de se recharger
+    event.preventDefault();
+    app.addTask();
   },
 
   // Ajouter une tâche
-  handleFormSubmit: function(event){
-    console.log('nouvelle tâche');
-    // On empeche la page de se recharger
-    event.preventDefault();
+  addTask: function(){
+    const liElement = document.createElement('li');
+    liElement.className = 'task-container';
+    
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'checkbox';
+
+    // Le nombre de tâches pour l'id de la tâche
+    const nbTasks = document.querySelectorAll('ul li.task-container').length;
+
+    const idTask =`checkbox-${nbTasks + 1}`;
+    checkbox.id = idTask;
+
+    const label = document.createElement('label');
+    label.className = 'label';
+    // TODO utiliser le contenu de l'input
+    label.textContent = 'Revoir le JavaScript';
+    label.setAttribute('for', idTask);
+
+    liElement.appendChild(checkbox);
+    liElement.appendChild(label);
+
+    app.ulElement.appendChild(liElement);
   }
 };
 
