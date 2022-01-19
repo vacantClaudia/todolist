@@ -13,7 +13,7 @@ body{
   width : 100%;
   background-color: #DED9C4;
   border: 1px solid #D0CAB2;
-  color: #D0CAB2;
+  /* color: #D0CAB2; */
   box-shadow: inset 0 0 25px #D0CAB2;
   padding: 1em;
   font-size: 1.5em;

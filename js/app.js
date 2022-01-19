@@ -13,6 +13,7 @@ var app = {
   creatForm: function(){
     const form = document.createElement('form');
     form.className = 'form-addTask';
+    form.addEventListener('submit', app.handleFormSubmit);
 
     const input = document.createElement('input');
     input.className = 'input-addTask';
@@ -63,6 +64,13 @@ var app = {
     }
 
     app.container.appendChild(ulElement);
+  },
+
+  // Ajouter une tâche
+  handleFormSubmit: function(event){
+    console.log('nouvelle tâche');
+    // On empeche la page de se recharger
+    event.preventDefault();
   }
 };
 
