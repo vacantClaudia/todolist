@@ -70,6 +70,8 @@ var app = {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'checkbox';
+    // Evenement change
+    checkbox.addEventListener('change', app.handleCheckboxChange);
 
     // Le nombre de tâches pour l'id de la tâche
     const nbTasks = document.querySelectorAll('ul li.task-container').length;
@@ -89,6 +91,22 @@ var app = {
 
     // On met à jour le compteur
     app.setCoutnerValue();
+  },
+
+  handleCheckboxChange: function(event) {
+    // console.log('évenement change: ', event.currentTarget.checked);
+    const liElement = event.currentTarget.closest('.task-container');
+    if (event.currentTarget.checked) {
+      // La case vient d'être cochée, on ajoute la classe
+      liElement.classList.add('task-container--done');
+    }else{
+      // On enlève la classe
+      liElement.classList.remove('task-container--done');
+    }
+
+    //On met à jour le compteur
+    app.setCoutnerValue();
+
   }
 };
 
