@@ -47,11 +47,16 @@ var app = {
     // console.log('nouvelle tâche');
     // On empeche la page de se recharger
     event.preventDefault();
-    app.addTask();
+
+    const inputElement = event.currentTarget.querySelector('input');
+    app.addTask(inputElement.value);
+
+    // On vide l'input
+    inputElement.value = '';
   },
 
   // Ajouter une tâche
-  addTask: function(){
+  addTask: function(taskLabel){
     const liElement = document.createElement('li');
     liElement.className = 'task-container';
     
@@ -62,14 +67,13 @@ var app = {
 
     // Le nombre de tâches pour l'id de la tâche
     const nbTasks = document.querySelectorAll('ul li.task-container').length;
-
     const idTask =`checkbox-${nbTasks + 1}`;
     checkbox.id = idTask;
 
     const label = document.createElement('label');
     label.className = 'label';
     // TODO utiliser le contenu de l'input
-    label.textContent = 'Revoir le JavaScript';
+    label.textContent = taskLabel;
     label.setAttribute('for', idTask);
 
     liElement.appendChild(checkbox);
