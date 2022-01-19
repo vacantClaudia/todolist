@@ -1,5 +1,5 @@
 body{
-  background-color: #89B5AF;
+  background-color: #168677;
 }
 #todo{
   width: 500px;
@@ -32,7 +32,7 @@ body{
 }
 
 .task-container{
-  color: #2d4441;
+  color: #DED9C4;
   border: 1px solid #D0CAB2;
   line-height: 3em;
   border-radius: 4px;
